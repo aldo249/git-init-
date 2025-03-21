@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base de Datos de Niños</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .header {
+            background-color: #2196F3;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .form-section {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .form-item {
+            margin: 10px 0;
+        }
+        .label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .table, .table th, .table td {
+            border: 1px solid #ddd;
+        }
+        .table th, .table td {
+            padding: 10px;
+            text-align: left;
+        }
+        .table th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Base de Datos de Niños</h1>
+    </div>
+
+    <div class="form-section">
+        <h2>Agregar Niño</h2>
+        <div class="form-item">
+            <label class="label">Nombre:</label>
+            <input type="text" id="name" placeholder="Nombre del niño">
+        </div>
+        <div class="form-item">
+            <label class="label">Edad:</label>
+            <input type="number" id="age" placeholder="Edad del niño">
+        </div>
+        <div class="form-item">
+            <label class="label">Grado:</label>
+            <input type="text" id="grade" placeholder="Grado del niño">
+       </div>
+       //
+       
+    <div class="form-item">
+            <label class="label">Materia:</label>
+            <input type="text" id="materia" placeholder="materia del niño">
+       </div>
+       
+        <button class="button" onclick="addChild()">Agregar Niño</button>
+    </div>
+
+
+    <table class="table" id="childrenTable">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Grado</th>
+                <th>Materia</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Aquí se llenarán las filas con los datos -->
+        </tbody>
+    </table>
+
+    <script>
+        const children = [];
+
+        function addChild() {
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+            const grade = document.getElementById('grade').value;
+            const materia = document.getElementById('materia').value;
+
+            if (name && age && grade) {
+                // Agregar el niño al array
+                children.push({ name, age, grade });
+
+                // Limpiar los campos del formulario
+                document.getElementById('name').value = '';
+                document.getElementById('age').value = '';
+                document.getElementById('grade').value = '';
+                document.getElementById('materia').value = '';
+                
+                // Actualizar la tabla
+                updateTable();
+            } else {
+                alert('Por favor, completa todos los campos.');
+            }
+        }
+
+        function updateTable() {
+            const tableBody = document.getElementById('childrenTable').getElementsByTagName('tbody')[0];
+            tableBody.innerHTML = ''; // Limpiar la tabla antes de actualizar
+
+            children.forEach((child) => {
+                const row = tableBody.insertRow();
+                const cellName = row.insertCell(0);
+                const cellAge = row.insertCell(1);
+                const cellGrade = row.insertCell(2);
+                const cellmateria = row.insertCell(3);
+
+                cellName.textContent = child.name;
+                cellAge.textContent = child.age;
+                cellGrade.textContent = child.grade;
+                cellmateria.textContent = child.materia;
+            });
+        }
+    </script>
+     <button class="button" onclick="window.location.href='menu.html'">Volver a Menu</button>
+</body>
+</html>
