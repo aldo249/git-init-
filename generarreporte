@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generar Reportes de Aprendizaje</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .header {
+            background-color: #2196F3;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .form-section, .report-section {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .form-item {
+            margin: 10px 0;
+        }
+        .label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .report {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Reportes de Aprendizaje</h1>
+    </div>
+
+    <div class="form-section">
+        <h2>Ingreso de Evaluación</h2>
+        <div class="form-item">
+            <label class="label">Nombre del Estudiante:</label>
+            <input type="text" id="studentName" placeholder="Nombre del estudiante">
+        </div>
+        <div class="form-item">
+            <label class="label">Materia:</label>
+            <input type="text" id="subject" placeholder="Materia">
+        </div>
+        <div class="form-item">
+            <label class="label">Calificación:</label>
+            <input type="number" id="grade" placeholder="Calificación" min="0" max="100">
+        </div>
+        <button class="button" onclick="generateReport()">Generar Reporte</button>
+    </div>
+
+    <div class="report-section" id="reportSection" style="display:none;">
+        <h2>Reporte de Aprendizaje</h2>
+        <div class="report" id="reportContent"></div>
+        <button class="button" onclick="printReport()">Imprimir Reporte</button>
+    </div>
+
+    <script>
+        function generateReport() {
+            const studentName = document.getElementById('studentName').value;
+            const subject = document.getElementById('subject').value;
+            const grade = document.getElementById('grade').value;
+
+            if (studentName && subject && grade) {
+                // Crear el contenido del reporte
+                const reportContent = `
+                    <strong>Nombre del Estudiante:</strong> ${studentName}<br>
+                    <strong>Materia:</strong> ${subject}<br>
+                    <strong>Calificación:</strong> ${grade}<br>
+                    <strong>Comentarios:</strong> ${getComments(grade)}<br>
+                `;
+
+                // Mostrar el reporte
+                document.getElementById('reportContent').innerHTML = reportContent;
+                document.getElementById('reportSection').style.display = 'block';
+
+                // Limpiar los campos del formulario
+                document.getElementById('studentName').value = '';
+                document.getElementById('subject').value = '';
+                document.getElementById('grade').value = '';
+            } else {
+                alert('Por favor, completa todos los campos.');
+            }
+        }
+
+        function getComments(grade) {
+            if (grade >= 90) return 'Excelente trabajo.';
+            if (grade >= 75) return 'Buen esfuerzo, sigue así.';
+            if (grade >= 50) return 'Necesitas mejorar en esta materia.';
+            return 'Se recomienda solicitar apoyo adicional.';
+        }
+
+        function printReport() {
+            const reportContent = document.getElementById('reportContent').innerHTML;
+            const printWindow = window.open('', '', 'height=600,width=800');
+            printWindow.document.write('<html><head><title>Reporte de Aprendizaje</title></head><body>');
+            printWindow.document.write(reportContent);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.print();
+        }
+    </script>
+     <button class="button" onclick="window.location.href='menu.html'">Volver a Menu</button>
+</body>
+</html>
