@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantalla de Lecciones</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .header {
+            background-color: #2196F3;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .lesson-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 10px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .lesson-card:hover {
+            transform: scale(1.05);
+        }
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .lesson-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Lecciones Disponibles</h1>
+    </div>
+    <div class="lesson-list">
+        <div class="lesson-card">
+            <h2>Lección de Matemáticas Básicas</h2>
+            <p>Introducción a las operaciones matemáticas simples.</p>
+            <a class="button" href="https://toysmart.co/blogs/blog/7-actividades-matematicas-para-ninos-en-edad-preescolar?srsltid=AfmBOooLcSXqWBMGN-UnWFZFE0R5v97MVOSdLIaM8Uf2sJHdnRvjcIq9">Ver Lección</button>
+        </div>
+        <div class="lesson-card">
+            <h2>Lección de Lectura</h2>
+            <p>Aprender a leer con cuentos interactivos.</p>
+            <a class="button" href="https://www.olimpiadasespecialeschile.org/post/5-relatos-y-11-cuentos-inclusivos-para-celebrar-el-d%C3%ADa-del-libro-en-casa">Ver Lección</button>
+        </div>
+        <div class="lesson-card">
+            <h2>Lección de Ciencias Naturales</h2>
+            <p>Exploración de la naturaleza y los seres vivos.</p>
+            <a class="button" href="https://mx.pinterest.com/peamijangos/ciencias-naturales-para-discapacidad-intelectual/">Ver Lección</button>
+        </div>
+        <div class="lesson-card">
+            <h2>Lección de Historia</h2>
+            <p>Conocer las bases de la historia del mundo.</p>
+            <a class="button" href="https://www.unicef.org/parenting/es/cuidado-infantil/10-actividades-ludicas-para-ninos-con-discapacidad">Ver Lección</button>
+        </div>
+    </div>
+    <button class="button" onclick="window.location.href='index.html'">Volver a Menu</button>
+</body>
+</html>
