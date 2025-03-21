@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botón de Navegación</title>
+    <img src="juegos1.png" wight="50" height="50">
+    <style>
+        .button {
+            display: inline-block;
+            background-color: #4CAF50; /* Verde */
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none; /* Quita el subrayado del enlace */
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .button:hover {
+            background-color: #45a049; /* Verde más oscuro */
+        }
+    </style>
+</head>
+<body bgcolor="blue sky">
+
+    <h1>Proyecto de Metodologias de Ensenanza</h1>
+     <h1>para ninos de Jardin</h1>
+    
+    <a class="button" href="menu.html">Ir a Menu</a>
+   <br><br><br><br>
+   
+  <p><font face= "courgette" align="center" color="blue">
+ Se crea un entorno interactivo y accesible para los ninos, implementando
+ metodologias adaptativas que respondan a las necesidades de aprendizaje individuales
+ y proporcionando herramientas para educadores y padres para apoyar el aprendizaje</font>   </p>
+   <br><br><br><br>
+
+ <marquee> <img src="aprendiz.jpg" wight="200" height="200"> </marquee>
+  
+  
+  
+</body>
+</html>
